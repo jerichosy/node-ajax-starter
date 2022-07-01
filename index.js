@@ -60,10 +60,25 @@ app.get('/', function(req, res) {
 
 app.get('/getStudents', function(req, res) {
   // TODO
+  res.status(200).send(students);
 });
 
 app.post('/addStudent', function(req, res) {
   // TODO
+  // {
+  //   name: name,
+  //   id: idnum,
+  //   img: gender
+  // }
+  var student = {
+    name: req.body.name,
+    id: req.body.id,
+    img: `img/${req.body.gender}.png`
+  }
+  students.push(student);
+  res.status(200).send(student);
+
+  console.log(req.body);  // this prints in nodejs console
 })
 
 /**
